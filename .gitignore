@@ -1,2 +1,4 @@
 env
 *.pyc
+settings_local.py
+data
