@@ -7,6 +7,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('docs.views',
 
     url(r'^$','index'),
+    url(r'^article/(?P<article_id>\d+)/$','article'),
     # Examples:
     # url(r'^$', 'docs.views.home', name='home'),
     # url(r'^docs/', include('docs.foo.urls')),

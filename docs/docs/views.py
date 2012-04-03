@@ -9,3 +9,10 @@ def index(request):
     """
     return render_to_response('index.html',{'message':'Hello bitches.'})
 
+def article(request,article_id):
+    """
+    Gets the specified article.
+    """
+    return render_to_response('article.html',{'article':article_id})
+
+    
