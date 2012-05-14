@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/reset.css' %}" />
+		<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/text.css' %}" />
+		<link rel="stylesheet" type="text/css" media="all" href="{% static 'css/960.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/custom-theme/jquery-ui-1.8rc3.custom.css' %}">
+		<link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/docs_base.css' %}" />
+		<title>Axilent Documentation</title>
+	</head>
+	<body>
+		<div id="top_nav">
+			<div id="logo_container">
+				<a href="/" class="nohover"><img src="{% static 'images/axilent_small.png' %}" height="35"></a>
+			</div>
+			<div id="top_nav_navigation">
+				<a href="/">Home</a> | <a href="/index/">Index</a>
+			</div>
+			<div id="top_nav_title">
+				<h3>{% block title %}&nbsp;{% endblock %}</h3>
+			</div>
+		</div>
+		<div class="container_12">
+			{% block content %}
+			{# content here #}
+			{% endblock content %}
+		</div>
+	</body>
+</html>

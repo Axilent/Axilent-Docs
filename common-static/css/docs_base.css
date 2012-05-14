@@ -1,0 +1,23 @@
+/*Base CSS File for Axlent Docs*/
+
+div#logo_container {
+	float:left;
+}
+
+div#top_nav_title {
+	width:100%;
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto≈;
+}
+
+div#top_nav_navigation {
+	float:right;
+	
+}
+
+div#top_nav {
+	margin-top:5px;
+	margin-left:5px;
+	margin-right:10px;
+}

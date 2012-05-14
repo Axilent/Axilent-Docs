@@ -10,7 +10,7 @@ class ArticleMapping(ContentMapping):
     """
     model = Article
     content_type = 'Article'
-    pk_field = 'path'
+    pk_field = 'Path'
     save_to_axilent = False # Read only.
     
     def on_load(self,data,model):
@@ -18,16 +18,16 @@ class ArticleMapping(ContentMapping):
         Called when the local content is sync'd to the Axilent content item.  Must return
         the local model.
         """
-        if 'path' in data:
-            model.path = data['path']
+        if 'Path' in data:
+            model.path = data['Path']
         
-        if 'title' in data:
-            model.title = data['title']
+        if 'Title' in data:
+            model.title = data['Title']
         
-        model.contents = data.get('contents',None)
+        model.contents = data.get('Content',None)
         
-        if 'category' in data:
-            category, category_created = Category.objects.get_or_create(name=data['category'])
+        if 'Category' in data:
+            category, category_created = Category.objects.get_or_create(name=data['Category'])
             model.category = category
         
         
@@ -38,9 +38,9 @@ class ArticleMapping(ContentMapping):
         """
         Called when the local content is saved.  Must return the data for Axilent.
         """
-        data['path'] = model.path
-        data['title'] = model.title
-        data['category'] = model.category.name
-        data['contents'] = model.contents
+        data['Path'] = model.path
+        data['Title'] = model.title
+        data['Category'] = model.category.name
+        data['Contents'] = model.contents
         return data
 

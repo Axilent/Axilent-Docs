@@ -1,1 +1,16 @@
-<h1>Article: {{ article }}</h1>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid_9">
+	<div class="panel">
+		<h4>{{ article.category }}</h4>
+		{{ article.contents|safe }}
+	</div>
+</div>
+<div class="grid_3">
+	<div class="panel shady">
+		<h4>Related Articles</h4>
+	</div>
+</div>
+{% endblock %}
+

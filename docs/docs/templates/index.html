@@ -1,1 +1,28 @@
-<h1>{{ message }}</h1>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid_9">
+	<h1>Axilent Documentation</h1>
+	<div class="panel ui-corner-all">
+		<h2>{{ articles.default.0.title }}</h2>
+		{{ articles.default.0.contents|safe }}
+	</div>
+</div>
+<div class="grid_3">
+	<div class="panel shady ui-corner-all">
+		<h3>Getting Started</h3>
+		<ul>
+			{% for gs_article in gs_articles.default %}
+			<li><h4><a href="{{ gs_article.path }}">{{ gs_article.title }}</a></h4></li>
+			{% endfor %}
+		</ul>
+		<hr/>
+		<h3>Developers</h3>
+		<ul>
+			{% for dev_article in dev_articles.default %}
+			<li><h4><a href="{{ dev_article.path }}">{{ dev_article.title }}</a></h4></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endblock content %}

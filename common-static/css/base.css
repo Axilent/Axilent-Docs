@@ -1,0 +1,106 @@
+* {
+	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+body {
+	background-color:#EEEEEE;
+}
+
+/* Text Styles */
+
+h1 {
+	text-align: left;
+	color: #1a0090;
+	font: 20pt/24px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	margin-bottom: 5px;
+}
+
+h2 {
+	color: #1a0090;
+	font-size: 18px;
+}
+
+h3 {
+	color: #1a0090;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+h4 {
+	color: #1a0090;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+h5 {
+	color: #1a0090;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+hr {
+	background-color: #1a0090;
+	border-top: 1px solid #1a0090;
+}
+
+a {
+	color: #1a0090;
+	text-decoration: none;
+}
+
+em {
+	font-style: italic;
+}
+
+a:hover {
+	background-color: #59d6ff;
+	color: #080096;
+}
+
+a.nohover:hover {
+	background-color: transparent;
+}
+
+a.icon_link:hover {
+	background-color:#ffffff;
+}
+
+a.selected {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.strike {
+	text-decoration: line-through;
+}
+
+.strong {
+	font-weight: bold;
+}
+
+.caption {
+	font-style: italic;
+	font-size: 10px;
+	color: #5e5e5e;
+	margin-top: -10px;
+}
+
+ul {
+	list-style-type: none;
+	text-align: left;
+}
+
+ul li.alt_row {
+	background-color: #eaeaea;
+}
+
+.panel {
+	padding: 10px;
+	border: 1px solid #a9a9a9;
+	margin: 10px;
+	background-color: white;
+}
+
+.shady {
+	background-color:#F9F9FF;
+}
