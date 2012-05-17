@@ -7,7 +7,8 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('docs.views',
 
     url(r'^$','index'),
-    url(r'^(?P<path>[\w\-/]+)$','article'),
+    url(r'^article/(?P<path>[\w-]+)/$','article'),
+    url(r'^category/(?P<category_name>\w+)/$','category'),
     # Examples:
     # url(r'^$', 'docs.views.home', name='home'),
     # url(r'^docs/', include('docs.foo.urls')),

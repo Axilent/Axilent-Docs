@@ -2,14 +2,27 @@
 
 {% block content %}
 <div class="grid_9">
-	<div class="panel">
-		<h4>{{ article.category }}</h4>
-		{{ article.contents|safe }}
+	<div class="panel ui-corner-all">
+		<div style="float:right">
+			<h4><a href="/category/{{ article.data.category }}/">{{ article.data.category }}</a></h4>
+		</div>
+		<h2>{{ article.data.title }}</h2>
+		{{ article.data.contents|safe }}
 	</div>
 </div>
 <div class="grid_3">
-	<div class="panel shady">
-		<h4>Related Articles</h4>
+	<div class="panel shady ui-corner-all">
+		<h3>Related Articles</h3>
+		<hr/>
+		<table>
+			{% for related_article in related_articles.default %}
+			<tr>
+				<td>
+					<h4><a href="/article/{{ related_article.content.data.path }}/">{{ related_article.content.data.title }}</a></h4>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
 	</div>
 </div>
 {% endblock %}

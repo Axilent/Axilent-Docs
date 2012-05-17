@@ -4,25 +4,38 @@
 <div class="grid_9">
 	<h1>Axilent Documentation</h1>
 	<div class="panel ui-corner-all">
-		<h2>{{ articles.default.0.title }}</h2>
-		{{ articles.default.0.contents|safe }}
+		{% for article in articles.default %}
+		{% if forloop.counter == 1 %}
+		<h1><a href="/article/{{ article.content.data.path }}/">{{ article.content.data.title }}</a></h1>
+		{% else %}
+		<h2><a href="/article/{{ article.content.data.path }}/">{{ article.content.data.title }}</a></h2>
+		{% endif %}
+		{{ article.content.data.contents|safe }}
+		{% if not forloop.last %}
+		<hr/>
+		{% endif %}
+		{% endfor %}
 	</div>
 </div>
 <div class="grid_3">
 	<div class="panel shady ui-corner-all">
-		<h3>Getting Started</h3>
-		<ul>
+		<a href="/category/getting-started/"><h3>Getting Started</h3></a>
+		<table>
 			{% for gs_article in gs_articles.default %}
-			<li><h4><a href="{{ gs_article.path }}">{{ gs_article.title }}</a></h4></li>
+			<tr>
+				<td><h4><a href="/article/{{ gs_article.content.data.path }}/">{{ gs_article.content.data.title }}</a></h4></td>
+			</tr>
 			{% endfor %}
-		</ul>
+		</table>
 		<hr/>
-		<h3>Developers</h3>
-		<ul>
+		<a href="/category/developers/"><h3>Developers</h3></a>
+		<table>
 			{% for dev_article in dev_articles.default %}
-			<li><h4><a href="{{ dev_article.path }}">{{ dev_article.title }}</a></h4></li>
+			<tr>
+				<td><h4><a href="/article/{{ dev_article.content.data.path }}/">{{ dev_article.content.data.title }}</a></h4></td>
+			</tr>
 			{% endfor %}
-		</ul>
+		<table>
 	</div>
 </div>
 {% endblock content %}
