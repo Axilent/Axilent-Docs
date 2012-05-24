@@ -1,0 +1,5 @@
+Django==1.4
+-e git://github.com/Axilent/django-axilent#egg=Django_Axilent-0.1dev-py2.7-dev
+-e git://github.com/Axilent/sharrock#egg=Sharrock-0.1dev-py2.7-dev
+httplib2==0.7.4
+wsgiref==0.1.2
