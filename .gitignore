@@ -1,4 +1,5 @@
 env
+venv
 *.pyc
 settings_local.py
 data
