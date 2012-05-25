@@ -7,6 +7,10 @@
 			<h4><a href="/category/{{ article.data.category }}/">{{ article.data.category }}</a></h4>
 		</div>
 		<h2>{{ article.data.title }}</h2>
+		{% if article.data.video %}
+		<iframe width="640" height="360" src="{{ article.data.video }}" frameborder="0" allowfullscreen></iframe>
+		<br/><br/>
+		{% endif %}
 		{{ article.data.contents|safe }}
 	</div>
 </div>
