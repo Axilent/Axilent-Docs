@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Sets environment variables for local execution of Axilent Docs
+export AXILENT_DOCS_DEBUG=true
+export AXILENT_DOCS_SECRET_DJANGO_KEY='<your-django-secret-key>'
+export AXILENT_DOCS_API_KEY = '<your-axilent-api-key>'
+
+# Run
+./manage.py $1 $2 $3
+

@@ -4,3 +4,4 @@ venv
 settings_local.py
 data
 .DS_Store
+local.sh
