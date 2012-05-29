@@ -1,5 +1,7 @@
 # Django settings for docs project.
 
+import os
+
 # =========================
 # = ENVIRONMENT VARIABLES =
 # =========================
@@ -49,6 +51,15 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = 'axilent_docs_static'
+STATIC_URL = '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -88,13 +99,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'axilent',
     'docs',
+    'storages',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
 
-import os
 
 DEBUG = True if os.environ.get('AXILENT_DOCS_DEBUG',None) else False
 TEMPLATE_DEBUG = DEBUG
@@ -152,7 +163,7 @@ STATIC_ROOT = static_root
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 static_url = os.environ.get('AXILENT_DOCS_STATIC_URL','/static/')
-STATIC_URL = static_url
+#STATIC_URL = static_url
 
 # Additional locations of static files
 staticfiles_dirs = os.environ.get('AXILENT_DOCS_STATICFILES_DIRS',project_root+'/common-static/')
