@@ -120,8 +120,16 @@ DATABASES = {
     }
 }
 
+if 'PYTHONHOME' in os.environ:
+    default_pwd = os.environ['PYTHONHOME']
+elif 'PWD' in os.environ:
+    default_pwd = os.environ['PWD']
+else:
+    default_pwd = ''
+
+
 #project_root = os.environ.get('AXILENT_DOCS_PROJECT_ROOT',os.environ['PWD']+'/../') # locally manage.py is invoked one level down from project root
-project_root = os.environ.get('AXILENT_DOCS_PROJECT_ROOT',os.environ['PWD']) # Except for Heroku, we need everything in project root (e.g. <root>/docs, not <root>/docs/docs
+project_root = os.environ.get('AXILENT_DOCS_PROJECT_ROOT',default_pwd) # Except for Heroku, we need everything in project root (e.g. <root>/docs, not <root>/docs/docs
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -153,7 +161,7 @@ STATICFILES_DIRS = (
     staticfiles_dirs,
 )
 
-print 'staticfiles dirs are',staticfiles_dirs
+#print 'staticfiles dirs are',staticfiles_dirs
 
 # Make this unique, and don't share it with anybody.
 # SECRET_KEY = os.environ['AXILENT_DOCS_SECRET_DJANGO_KEY']
