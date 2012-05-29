@@ -122,7 +122,8 @@ DATABASES = {
 }
 
 if 'PYTHONHOME' in os.environ:
-    default_pwd = os.environ['PYTHONHOME']
+    #default_pwd = os.environ['PYTHONHOME']
+    default_pwd = '/app/'
 elif 'PWD' in os.environ:
     default_pwd = os.environ['PWD']
 else:
