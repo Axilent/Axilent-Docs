@@ -120,7 +120,8 @@ DATABASES = {
     }
 }
 
-project_root = os.environ.get('AXILENT_DOCS_PROJECT_ROOT',os.environ['PWD']+'/../') # locally manage.py is invoked one level down from project root
+#project_root = os.environ.get('AXILENT_DOCS_PROJECT_ROOT',os.environ['PWD']+'/../') # locally manage.py is invoked one level down from project root
+project_root = os.environ.get('AXILENT_DOCS_PROJECT_ROOT',os.environ['PWD']) # Except for Heroku, we need everything in project root (e.g. <root>/docs, not <root>/docs/docs
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -135,7 +136,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-static_root = os.environ.get('AXILENT_DOCS_STATIC_ROOT',project_root+'collected-static/')
+static_root = os.environ.get('AXILENT_DOCS_STATIC_ROOT',project_root+'/collected-static/')
 STATIC_ROOT = static_root
 
 # URL prefix for static files.
@@ -144,7 +145,7 @@ static_url = os.environ.get('AXILENT_DOCS_STATIC_URL','/static/')
 STATIC_URL = static_url
 
 # Additional locations of static files
-staticfiles_dirs = os.environ.get('AXILENT_DOCS_STATICFILES_DIRS',project_root+'common-static/')
+staticfiles_dirs = os.environ.get('AXILENT_DOCS_STATICFILES_DIRS',project_root+'/common-static/')
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
