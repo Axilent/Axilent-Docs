@@ -103,6 +103,7 @@ admin_name = os.environ.get('AXILENT_DOCS_ADMIN_NAME','Ops')
 admin_email = os.environ.get('AXILENT_DOCS_ADMIN_EMAIL','ops@axilent.com')
 ADMINS = (
     (admin_name,admin_email),
+    ('Peter Herndon', 'tpherndon@gmail.com'),
 )
 
 MANAGERS = ADMINS
