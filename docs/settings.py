@@ -216,4 +216,3 @@ LOGGING = {
 
 AXILENT_API_KEY = os.environ['AXILENT_DOCS_API_KEY']
 AXILENT_ENDPOINT = os.environ.get('AXILENT_DOCS_ENDPOINT','https://www.axilent.net')
-#AXILENT_API_KEY = '2b9588c57c18414d9b2f529c74d32dc5' # TODO
