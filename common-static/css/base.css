@@ -12,28 +12,28 @@ h1 {
 	text-align: left;
 	color: #1a0090;
 	font: 20pt/24px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 }
 
 h2 {
-	color: #1a0090;
+	color: #424242;
 	font-size: 18px;
 }
 
 h3 {
-	color: #1a0090;
+	color: #5e5e5e;
 	font-size: 14px;
 	font-weight: bold;
 }
 
 h4 {
-	color: #1a0090;
+	color: #5e5e5e;
 	font-weight: bold;
 	font-size: 12px;
 }
 
 h5 {
-	color: #1a0090;
+	color: #5e5e5e;
 	font-weight: bold;
 	font-size: 11px;
 }
@@ -86,8 +86,13 @@ a.selected {
 }
 
 ul {
-	list-style-type: none;
+	list-style-type: square;
 	text-align: left;
+	list-style-position: outside;
+}
+
+ul li {
+	margin-bottom: 5px;
 }
 
 ul li.alt_row {
@@ -103,4 +108,11 @@ ul li.alt_row {
 
 .shady {
 	background-color:#F9F9FF;
+}
+
+blockquote {
+	margin: 10px;
+	border: 1px solid #5e5e5e;
+	padding: 10px;
+	background-color: rgba(133,213,253,0.3);
 }
