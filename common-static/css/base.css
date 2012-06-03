@@ -92,11 +92,15 @@ ul {
 }
 
 ul li {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 ul li.alt_row {
 	background-color: #eaeaea;
+}
+
+ol li {
+	margin-bottom: 10px;
 }
 
 .panel {
@@ -115,4 +119,11 @@ blockquote {
 	border: 1px solid #5e5e5e;
 	padding: 10px;
 	background-color: rgba(133,213,253,0.3);
+}
+
+code {
+	background-color: #eaeaea;
+	font-family: "Courier New", Courier, mono;
+	margin: 10px;
+	padding: 10px;
 }
