@@ -216,3 +216,12 @@ LOGGING = {
 
 AXILENT_API_KEY = os.environ['AXILENT_DOCS_API_KEY']
 AXILENT_ENDPOINT = os.environ.get('AXILENT_DOCS_ENDPOINT','https://www.axilent.net')
+
+
+######################
+## CACHING SETUP
+## per http://pypi.python.org/pypi/django-heroku-memcacheify/
+## requires pylibmc and libmemcached (brew install libmemcached; pip install pylibmc)
+######################
+from memcacheify import memcacheify
+CACHES = memcacheify()
