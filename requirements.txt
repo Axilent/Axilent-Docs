@@ -10,3 +10,5 @@ psycopg2
 boto==2.4.1
 django-storages==1.1.4
 django-heroku-memcacheify==0.2
+pylibmc==1.2.3
+django-pylibmc-sasl==0.2.4
