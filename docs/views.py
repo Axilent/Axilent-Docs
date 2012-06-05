@@ -40,4 +40,10 @@ def category(request,category_name):
     print 'retrieved category articles',articles
     return render_to_response('category.html',{'articles':articles,'category':category_name})
 
-    
+def article_index(request):
+    """
+    The actual main index of all the articles.
+    """
+    gs_articles = getting_started_channel.get()
+    dev_articles = dev_channel.get()
+    return render_to_response('article_index.html',{'gs_articles':gs_articles,'dev_articles':dev_articles})
