@@ -1,0 +1,223 @@
+
+<html>
+	<head>
+		<link rel="shortcut icon" href="https://axilent_docs_static.s3.amazonaws.com/images/favicon.png?Signature=2wiWp4GzUzd18cyL5RJVOW7n7Ng%3D&Expires=1338924935&AWSAccessKeyId=AKIAIDQ7G7TMSGVXOPXA" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" media="all" href="https://axilent_docs_static.s3.amazonaws.com/css/reset.css?Signature=nG9bn1Aaa2NMHznPPb5QWrblgnM%3D&Expires=1338924935&AWSAccessKeyId=AKIAIDQ7G7TMSGVXOPXA" />
+		<link rel="stylesheet" type="text/css" media="all" href="https://axilent_docs_static.s3.amazonaws.com/css/text.css?Signature=3fyYwZ6G90C8Q1bmTPAEOaksdxU%3D&Expires=1338924935&AWSAccessKeyId=AKIAIDQ7G7TMSGVXOPXA" />
+		<link rel="stylesheet" type="text/css" media="all" href="https://axilent_docs_static.s3.amazonaws.com/css/960.css?Signature=mm63TrjdX9wuPXKxZGsxaA1%2F9%2Bk%3D&Expires=1338924935&AWSAccessKeyId=AKIAIDQ7G7TMSGVXOPXA" />
+		<link rel="stylesheet" type="text/css" href="https://axilent_docs_static.s3.amazonaws.com/css/custom-theme/jquery-ui-1.8rc3.custom.css?Signature=JBcFw%2FvV8UzW4UuldL99zyIZouo%3D&Expires=1338924935&AWSAccessKeyId=AKIAIDQ7G7TMSGVXOPXA">
+		<link rel="stylesheet" href="file:///Users/lorendavie/Projects/Axilent-Docs/common-static/css/base.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="https://axilent_docs_static.s3.amazonaws.com/css/docs_base.css?Signature=z53CUaWCYEVGHxgTy32H1zVRE4E%3D&Expires=1338924935&AWSAccessKeyId=AKIAIDQ7G7TMSGVXOPXA" />
+		<title>Axilent Documentation</title>
+	</head>
+	<body>
+		<div id="top_nav">
+			<div id="logo_container">
+				<a href="/" class="nohover"><img src="https://axilent_docs_static.s3.amazonaws.com/images/axilent_small.png?Signature=E0xVOF%2B0y4rIvq4kfnGoS0U9p44%3D&Expires=1338924935&AWSAccessKeyId=AKIAIDQ7G7TMSGVXOPXA" height="35"></a>
+			</div>
+			<div id="top_nav_navigation">
+				<a href="/">Home</a> | <a href="/index/">Index</a>
+			</div>
+			<div id="top_nav_title">
+				<h3>&nbsp;</h3>
+			</div>
+		</div>
+		<div class="container_12">
+			
+<div class="grid_9">
+	<div class="panel ui-corner-all">
+		<div style="float:right">
+			<h4><a href="/category/Tutorials/">Tutorials</a></h4>
+		</div>
+		<h2>Integrating Axilent</h2>
+		
+		<iframe width="640" height="360" src="http://www.youtube.com/embed/9mr4-uBbG3U" frameborder="0" allowfullscreen></iframe>
+		<br/><br/>
+		
+		<h1>Integrating Axilent</h1>
+<p>Axilent is designed from the ground up to be integrated with external systems.  The two most common types of integration are with a front-end of some sort, generally a web site or mobile app, or integration with a content management system (CMS).</p>
+<h2>Documentation</h2>
+<p>You will need access to documentation to integrate with Axilent.  There are three primary sources of documentation: the main documentation site <a href="http://docs.axilent.com">docs.axilent.com</a> (where this article is located), the <a href="https://www.axilent.net/api/dir">API Reference Documentation</a> and finally the online support community at <a href="http://getsatisfaction.com/Axilent">getsatisfaction.com/Axilent</a>.</p>
+<blockquote>
+<h2>A Note on API Reference Documentation</h2>
+<p>The API Reference Documentation is automatically generated using the open source <a href="https://github.com/Axilent/sharrock">Sharrock</a> project.  We maintain multiple versions of the API to gracefully deprecate (and thus avoid breaking people's integrations) when we make API changes.  As a result you will see older versions of the API shown in the API Reference Documentation.</p>
+<h2>The current API version is <strong>beta3</strong>.</h2>
+<p>You should avoid coding against deprecated functions.</p>
+</blockquote>
+<h1>Integration Types and the API</h1>
+<p>There are two types of integration with Axilent: <strong>GraphStack</strong> integration and <strong>Library</strong> integration.</p>
+<h2>GraphStack Integration</h2>
+<p>GraphStacks are another name for Deployment Targets.  When integrating with a GraphStack, you have access to the content and Content Channels that have been deployed to that GraphStack.  There are two APIs that fall under the category of GraphStack integration: <strong>Triggers</strong> and <strong>Content</strong>.</p>
+<p>The <strong>Content API</strong> (<em>axilent.content</em>) provides programmatic access to Content Channels and individual content items.  Its functions require the <strong>Content Access</strong> permission.</p>
+<p>The <strong>Triggers API</strong> (<em>axilent.triggers</em>) provides a feedback mechanism by which a front-end application can indicate user action and intent back to Axilent.  This is important for building personlization and collaborative filtering features, as well as for reporting functionality.</p>
+<h2>Library Integration</h2>
+<p>Axilent also provides direct integration with a project Library.  This is generally used to integrate a pre-existing content management system (CMS) with Axilent.  Because this integration is done directly with a project Library, there are no GraphStacks involved.</p>
+<p>Library integration provides the <strong>Library API</strong> (<em>axilent.library</em>), which allows you to create and update content items in the library.  Use of the Library API requires the <strong>Library</strong> permission.</p>
+<blockquote>
+<h2>Wait - what is "axilent.airtower"?</h2>
+<p><em>axilent.airtower</em> is the old name for the Library API.  It's in here for backwards compatable reasons, but it's deprecated and will go away at the end of the beta period.  Don't use it.</p>
+</blockquote>
+<h1>API Keys</h1>
+<p>To use the Axilent API, you will need an <strong>API Key</strong>.  API Keys provide authentication and authorization for the API.</p>
+<h2>Creating a GraphStack API Key</h2>
+<p>To create an API Key for one of the GraphStack APIs (<em>axilent.content</em> and <em>axilent.triggers</em>, under the Integration section in the control center, select the Deployment Target you want and then click the <strong>API Key Management</strong> button in the central column.  Then click on <strong>New API Key</strong> in the right hand column.</p>
+<p>You will need to associate the permissions you want with the key.  You can see which permissions are required by which function calls in the <a href="https://www.axilent.net/api/dir">API Reference Documentation</a> but as of the current time, the <em>axilent.triggers</em> API requires the Triggers permission, and the <em>axilent.content</em> API requires the Content Access permission.  You can create a key with both permissions if you want.</p>
+<p>Once the key is created it will show you the hex string that is it's token, or unique id.  See "Using API Keys" below to see how to use the token.</p>
+<h2>Creating a Library Key</h2>
+<p>To use the <em>axilent.library</em> API you will need to create a Library key.  To do so, under the Integration section click on the <strong>Configure Library Integration</strong> button in the left hand column and then <strong>API Key Management</strong> in the center column.  You can then create a new Library key.  It will automatically be associated with the Library permission.</p>
+<p>Like GraphStack keys, the Library key will have a token or unique id.  See below for how to use it.</p>
+<h2>Using API Keys</h2>
+<p>Accessing the Axilent APIs requires the use of Basic Auth, the HTTP authentication standard.  <strong>Use the token of your API key as the username for Basic Auth.</strong>  (There is no password.)</p>
+<p>If you do not use the API Key token, or if there is something wrong with the token, the API will respond with a 403 - Forbidden response code.</p>
+<h1>Characteristics of API Functions</h1>
+<p>Here's a quick intro to reading the <a href="https://www.axilent.net/api/dir">API Reference Documentation</a>.</p>
+<p>The documentation is divided up into the main APIs (axilent.content, axilent.triggers and axilent.library) and the various versions, current and deprecated, under each API.</p>
+<h2>Resources and Functions</h2>
+<p>Each API may define one or more <strong>Resources</strong> or <strong>Functions</strong>.  These are both API calls, but Resources follow the classic REST model more strictly, differentiating between HTTP methods (GET, POST, PUT, DELETE) whereas a Function is more straightforward, and doesn't particularly care which HTTP method you use to access it.</p>
+<p>For example, in the Library API, there is a <strong>Content</strong> resource.  It is used to manipulate content items in the Library.  If you access it with a POST method, it will create a new content item in the Library, whereas if you access it with a PUT method, it will update a pre-existing item in the Library.</p>
+<p>On the other hand, the <strong>Content Channel</strong> function in the Content API is just that - a function.  As long as you provide the parameters it wants, it doesn't care whether you access it with a GET, POST or whatever.</p>
+<blockquote>
+<h2>Why Are There Resources AND Functions?</h2>
+<p>REST, or the modeling of business problems in terms of "resources" to be created, updated etc., is a good model, but fits more naturally with some cases than others.  We recognized that some of what we wanted to do with the API would be better represented with a REST model, and others with plain old remote procedure calls.  As a result we have tried to fit make API functionality fit both resources and functions, respectively, as is most appropriate for the use case.</p>
+</blockquote>
+<h2>Data Parsing Functions</h2>
+<p>The other main distinction between function types is between <strong>data parsing functions</strong> and regular functions.</p>
+<p>Data parsing functions (which can be part of resources as well) have this line in their documentation:</p>
+<blockquote>
+<p>"This is a data parsing function.  Params must be posted as serialized data."</p>
+</blockquote>
+<p>With ordinary functions, any parameters passed to the function may be done as query parameters.  However, in the case of data parsing functions, you must post a serialized data structure (generally JSON) in the body.  For example, the <strong>Trigger</strong> function in <em>axilent.triggers</em> wants to see a data structure that looks like this:</p>
+<pre><code>{"category":"confidence","action":"related-whiskey"}
+</code></pre>
+<p>If you attempt to pass <em>category</em> and <em>action</em> as query parameters, it will complain that there are missing parameters.</p>
+<p>(Obviously, the way HTTP works, if you have to post serialized data you are constrained to use a POST or PUT method.)</p>
+<h1>Content Channel Integration Example</h1>
+<p>Let's say you have a Content Channel named "Recommended Products".  When you are doing the initial implementation, the easiest thing to do is to set the channel to 100% random content.  Once you have completed the integration you can work with the channel.</p>
+<p>There are three things you need to make sure of before integrating the Content Channel:</p>
+<ol>
+<li>The channel needs to be deployed to the Deployment Target for which you are doing the implementation.</li>
+<li>At least one content item from each of the content types you have added to the channel needs to have been deployed to the Deployment Target.</li>
+<li>If you are using Curated Content, then each of the content items that you have added to the channel needs to have been deployed to the Deployment Target.</li>
+</ol>
+<p>You will need to make an API Key on the GraphStack to which the Content Channel has been deployed with the Content Access permission.</p>
+<h2>The Content Channel API Call</h2>
+<p>The URI for the Content Channel (represented as a GET request with a query string) is:</p>
+<pre><code>https://&lt;your-apikey-token&gt;@www.axilent.net/api/airtower.content/beta3/contentchannel/?channel=recommended-products
+</code></pre>
+<p>This should get you a JSON structure as a response.  It might look something like this:</p>
+<pre><code>{
+    "default": [{
+        "content": {
+            "data": {
+                "category": "Tutorials",
+                "path": "at-a-glance",
+                "video": "http://www.youtube.com/embed/5YZlNgccPog",
+                "contents": "&lt;p&gt;This is a brief introduction to the core ideas behind Axilent.&lt;/p&gt;\n&lt;h1&gt;What Is Axilent?&lt;/h1&gt;\n&lt;p&gt;Axilent is an online content publishing system, based on a foundation of two core ideas: &lt;strong&gt;Content Everywhere&lt;/strong&gt;, and &lt;strong&gt;Targeted Content&lt;/strong&gt;.&lt;/p&gt;\n&lt;h2&gt;Content Everywhere&lt;/h2&gt;\n&lt;p&gt;Content Everywhere is an approach to online publishing in which content is pushed out from a central repository through an API. ... Targeted Content to reach your audience.  Axilent is the foundation of a modern, scalable approach to online publishing.&lt;/p&gt;\n&lt;p&gt;If you have any questions, please email us at &lt;a href=\"mailto:info@axilent.com\"&gt;info@axilent.com&lt;/a&gt;, or visit our &lt;a href=\"https://getsatisfaction.com/axilent\"&gt;online community&lt;/a&gt;.&lt;/p&gt;\n&lt;hr /&gt;\n&lt;h1&gt;Next: &lt;a href=\"/article/inbox/\"&gt;The Inbox&lt;/a&gt;&lt;/h1&gt;",
+                "title": "Axilent At A Glance"
+            },
+            "key": "cee11ebd664a42c988a2ebdef19e991b",
+            "content_type": "Article"
+        },
+        "endorsement": 101
+    }, {
+        "content": {
+            "data": {
+                "category": "Tutorials",
+                "path": "inbox",
+                "video": "http://www.youtube.com/embed/hBEc5o8EpMw",
+                "contents": "&lt;h1&gt;The Inbox&lt;/h1&gt;\n&lt;p&gt;The Inbox is where you'll spend most of your time in Axilent if you are using it as a Content Management System. This can be a good way of annotating your workflow decision, such as if you send the content back to a co-worker to correct some issue.&lt;/p&gt;\n&lt;hr /&gt;\n&lt;h1&gt;Next: &lt;a href=\"/article/library/\"&gt;The Library&lt;/a&gt;&lt;/h1&gt;\n&lt;h2&gt;Previous: &lt;a href=\"/article/at-a-glance/\"&gt;Axilent At A Glance&lt;/a&gt;&lt;/h2&gt;",
+                "title": "The Inbox"
+            },
+            "key": "c1ef0e405e1d4249a5e55a87a349ec60",
+            "content_type": "Article"
+        },
+        "endorsement": 96
+    }, {
+        "content": {
+            "data": {
+                "category": "Tutorials",
+                "path": "library",
+                "video": "http://www.youtube.com/embed/q9shX2u4UqA",
+                "contents": "&lt;p&gt;The Library is the main point of access to the content in the central repository for a Project. The Archived content will be reachable only from within Library search.&lt;/p&gt;\n&lt;hr /&gt;\n&lt;h1&gt;Next: TK&lt;/h1&gt;\n&lt;h2&gt;Previous: &lt;a href=\"/article/content-types-fields/\"&gt;Content Types Part 1 - Fields&lt;/a&gt;&lt;/h2&gt;",
+                "title": "Content Types (Part 2 - Workflow)"
+            },
+            "key": "d964e660503e448b9995c77d25e39708",
+            "content_type": "Article"
+        },
+        "endorsement": 76
+    }],
+    "meta": {
+        "channel": "getting-started"
+    }
+}
+</code></pre>
+<h2>Parsing the Content Channel Response</h2>
+<p>The response is a dictionary (or hashtable, hashmap etc) structure in JSON notation.  There are two top level keys:</p>
+<ul>
+<li><strong>default</strong> means the "default group".  The actual results from the Content Channel.  In the future there may be other groups included in the response, but right now the only result will be default, so you always read the results from there.</li>
+<li><strong>meta</strong> is metadata about the channel results.  Currently meta only contains a single entry: <strong>channel</strong> with the name of the content channel that has responded.  This is used when Content Channel Groups are accessed, because it lets you know which channel in the group was selected.  In the future there may be other metadata included in the meta entry.</li>
+</ul>
+<p>The value in the default group is a list of channel results.  Each result object consists of:</p>
+<ul>
+<li><strong>content</strong>: the content object</li>
+<li><strong>endorsement</strong>: the endorsement from the channel.  This is a number from 1 to 100 indicating the level of relevance prescribed by the channel.  Channel integrators should give more prominance to higher endorsed content, featuring it at the top of a list, or with more screen real estate.</li>
+</ul>
+<p>The content object itself consists of three entries:</p>
+<ul>
+<li><strong>data</strong>: The key/value pairs that comprise the field values for this content item.</li>
+<li><strong>key</strong>: The content key, or unique id, for this content item.</li>
+<li><strong>content_type</strong>: The content type of the item.</li>
+</ul>
+<h2>Possible Errors</h2>
+<p>If something goes wrong, it's probably one of these errors:</p>
+<ul>
+<li><strong>400</strong>: Most likely a missing parameter, such as "channel".  Also this is the error you are likely to get if you post query parameters to a data parsing function, or data to a regular function.</li>
+<li><strong>403</strong>: Security function.  Something is wrong with your API Token - it might have been deleted, or perhaps it doesn't have the right permissions, or you aren't setting it properly as the username in HTTP Basic Auth.</li>
+<li><strong>404</strong>: Something is most likely wrong with the URI you are using to address the function.  Make sure there is a trailing slash on the URL (e.g '.../contentchannel/' not '.../contentchannel').</li>
+<li><strong>409</strong>: Conflict.  This is a configuration problem with the channel, and most likely has to do with one of the three issues mentioned above (Content Channel not deployed, content items of referenced Content Types never deployed or Curated Content referencing content items that aren't deployed.)</li>
+</ul>
+	</div>
+</div>
+<div class="grid_3">
+	<div class="panel shady ui-corner-all">
+		<h3>Related Articles</h3>
+		<hr/>
+		<table>
+			
+			<tr>
+				<td>
+					<h4><a href="/article/at-a-glance/">Axilent At A Glance</a></h4>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<h4><a href="/article/start-dev/">Getting Started Developing With Axilent</a></h4>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<h4><a href="/article/library/">The Library</a></h4>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<h4><a href="/article/content-channels/">Content Channels</a></h4>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<h4><a href="/article/start/">Getting Started With Axilent</a></h4>
+				</td>
+			</tr>
+			
+		</table>
+	</div>
+</div>
+
+		</div>
+	</body>
+</html>

@@ -125,5 +125,5 @@ code {
 	background-color: #eaeaea;
 	font-family: "Courier New", Courier, mono;
 	margin: 10px;
-	padding: 10px;
+	overflow: auto;
 }
