@@ -225,6 +225,6 @@ AXILENT_ENDPOINT = os.environ.get('AXILENT_DOCS_ENDPOINT','https://www.axilent.n
 from memcacheify import memcacheify
 CACHES = memcacheify()
 
-CACHE_MIDDLEWARE_ALIAS = 'AxilentDocsSiteCache'
+CACHE_MIDDLEWARE_ALIAS = 'default'
 CACHE_MIDDLEWARE_SECONDS = 300
 CACHE_MIDDLEWARE_KEY_PREFIX = ''
