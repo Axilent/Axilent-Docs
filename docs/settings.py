@@ -76,7 +76,9 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -174,11 +176,8 @@ STATICFILES_DIRS = (
     staticfiles_dirs,
 )
 
-#print 'staticfiles dirs are',staticfiles_dirs
-
 # Make this unique, and don't share it with anybody.
-# SECRET_KEY = os.environ['AXILENT_DOCS_SECRET_DJANGO_KEY']
-SECRET_KEY = '2541b&amp;b6(hg(b8zc7%4=6ylx%&amp;w^#b1uf%f5vd7ovv6^h8!0f^' # TODO!!!!
+SECRET_KEY = os.environ['AXILENT_DOCS_SECRET_DJANGO_KEY']
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -225,3 +224,7 @@ AXILENT_ENDPOINT = os.environ.get('AXILENT_DOCS_ENDPOINT','https://www.axilent.n
 ######################
 from memcacheify import memcacheify
 CACHES = memcacheify()
+
+CACHE_MIDDLEWARE_ALIAS = 'AxilentDocsSiteCache'
+CACHE_MIDDLEWARE_SECONDS = 300
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
