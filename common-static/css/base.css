@@ -124,6 +124,35 @@ blockquote {
 code {
 	background-color: #eaeaea;
 	font-family: "Courier New", Courier, mono;
-	margin: 10px;
 	overflow: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+table {
+	border: 1px solid #5e5e5e;
+	width: 100%;
+	padding: 10px;
+}
+
+th {
+	padding: 10px;
+	background-color: #424242;
+	color: #fffeff;
+	font-weight: bold;
+}
+
+td {
+	padding: 10px;
+	border: 1px solid #919191;
+	background-color: #eaeaea;
+}
+
+div.channel table {
+	border-style: none;
+}
+
+div.channel table td {
+	border-style: none;
+	background-color: rgba(254,255,255,0);
 }
