@@ -155,4 +155,5 @@ div.channel table {
 div.channel table td {
 	border-style: none;
 	background-color: rgba(254,255,255,0);
+	padding: 0;
 }
