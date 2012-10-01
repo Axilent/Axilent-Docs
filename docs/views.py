@@ -3,7 +3,6 @@ Views for Axilent-Docs.
 """
 from django.shortcuts import render_to_response
 from axilent.hooks import ContentChannel
-from axilent.hooks import search as axl_search
 from docs.models import Article
 from axilent.utils import client
 from django.template.defaultfilters import slugify
@@ -48,11 +47,3 @@ def article_index(request):
     gs_articles = getting_started_channel.get()
     dev_articles = dev_channel.get()
     return render_to_response('article_index.html',{'gs_articles':gs_articles,'dev_articles':dev_articles})
-
-def search(request):
-    """
-    Search for the articles.
-    """
-    results = axl_search(request.GET['q'])
-    return render_to_response('search_results.html',{'results':results})
-

@@ -11,7 +11,6 @@ urlpatterns = patterns('docs.views',
     url(r'^article/(?P<path>[\w-]+)/$','article'),
     url(r'^category/(?P<category_name>\w+)/$','category'),
     url(r'^index/$','article_index'),
-    url(r'^search/$','search'),
     # Examples:
     # url(r'^$', 'docs.views.home', name='home'),
     # url(r'^docs/', include('docs.foo.urls')),
