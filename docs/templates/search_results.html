@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid_12">
+	<div class="panel ui-corner-all">
+		<h2>Search Results</h2>
+		<hr/>
+		{% if results %}
+		{% for result in results %}
+		<a href="/article/{{ result.data.path }}/"><h3>{{ result.data.title }}</h3></a>
+		{% endfor %}
+		{% else %}
+		<p>Sorry, no results for that.</p>
+		{% endif %}
+	</div>
+</div>
+{% endblock content %}
