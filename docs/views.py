@@ -6,11 +6,14 @@ from axilent.hooks import ContentChannel
 from docs.models import Article
 from axilent.utils import client
 from django.template.defaultfilters import slugify
+from sharrock.client import HttpClient
+from django.conf import settings
 
 main_channel = ContentChannel('welcome')
 dev_channel = ContentChannel('development')
 getting_started_channel = ContentChannel('getting-started')
 related_article_channel = ContentChannel('related-articles')
+tutorials_channel = ContentChannel('tutorials')
 
 
 def index(request):
@@ -20,7 +23,8 @@ def index(request):
     articles = main_channel.get()
     dev_articles = dev_channel.get()
     gs_articles = getting_started_channel.get()
-    return render_to_response('index.html',{'message':'Hello biznatches.','articles':articles,'dev_articles':dev_articles,'gs_articles':gs_articles})
+    tutorials_articles = tutorials_channel.get()
+    return render_to_response('index.html',{'message':'Hello biznatches.','articles':articles,'dev_articles':dev_articles,'gs_articles':gs_articles,'tutorials_articles':tutorials_articles})
 
 def article(request,path):
     """
@@ -37,7 +41,6 @@ def category(request,category_name):
     """
     category_channel = ContentChannel(slugify(category_name))
     articles = category_channel.get()
-    print 'retrieved category articles',articles
     return render_to_response('category.html',{'articles':articles,'category':category_name})
 
 def article_index(request):
@@ -47,3 +50,17 @@ def article_index(request):
     gs_articles = getting_started_channel.get()
     dev_articles = dev_channel.get()
     return render_to_response('article_index.html',{'gs_articles':gs_articles,'dev_articles':dev_articles})
+
+
+# ==========
+# = Search =
+# ==========
+
+search_client = HttpClient('https://www.axilent.net/api','axilent.content','beta3',auth_user=settings.AXILENT_API_KEY)
+
+def search(request):
+    """
+    Search.
+    """
+    results = search_client.search(content_types='Article',query=request.GET['q'])
+    return render_to_response('search_results.html',{'results':results})

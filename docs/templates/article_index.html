@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="panel ui-corner-all">
-	<h1>Index</h1>
-	<hr/>
-	<h2>Getting Started</h2>
-	{% for gs_article in gs_articles.default %}
-	<h3><a href="/article/{{ gs_article.content.data.path}}/">{{ gs_article.content.data.title }}</a></h3>
-	{% endfor %}
-	<hr/>
-	<h2>Development</h2>
-	{% for dev_article in dev_articles.default %}
-	<h3><a href="/article/{{ dev_article.content.data.path }}/">{{ dev_article.content.data.title }}</a></h3>
-	{% endfor %}
+<div class="grid_9">
+	<div class="panel ui-corner-all">
+		<h1>Index</h1>
+		<hr/>
+		<h2>Getting Started</h2>
+		{% for gs_article in gs_articles.default %}
+		<h3><a href="/article/{{ gs_article.content.data.path}}/">{{ gs_article.content.data.title }}</a></h3>
+		{% endfor %}
+		<hr/>
+		<h2>Development</h2>
+		{% for dev_article in dev_articles.default %}
+		<h3><a href="/article/{{ dev_article.content.data.path }}/">{{ dev_article.content.data.title }}</a></h3>
+		{% endfor %}
+	</div>
+</div>
+<div class="grid_3">
+	{% include 'search_box.html' %}
 </div>
 {% endblock content %}
